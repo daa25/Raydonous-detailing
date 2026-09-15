@@ -1,0 +1,45 @@
+name: Repair production images
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/repair-production-images.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Decode verified WebP source assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets/2026
+          base64 --decode assets/authentic2/working.b64 > assets/2026/hero-range-rover.webp
+          base64 --decode assets/authentic2/paint.b64 > assets/2026/foam-jeep.webp
+          base64 --decode assets/authentic2/rv.b64 > assets/2026/mobile-setup.webp
+          file assets/2026/*.webp
+          python3 - <<'PY'
+          from pathlib import Path
+          for p in Path('assets/2026').glob('*.webp'):
+              data=p.read_bytes()
+              assert data[:4] == b'RIFF' and data[8:12] == b'WEBP', f'Invalid WebP: {p}'
+              print(p, len(data), 'bytes OK')
+          PY
+      - name: Commit repaired production images
+        shell: bash
+        run: |
+          if git diff --quiet -- assets/2026; then
+            echo 'Production images already valid.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/2026/*.webp
+          git commit -m 'Fix broken production photography'
+          git push
