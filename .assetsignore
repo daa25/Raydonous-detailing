@@ -1,0 +1,9 @@
+.git
+.github
+wrangler.toml
+.assetsignore
+README.md
+assets/authentic2
+assets/video
+assets/*.txt
+assets/test.txt
