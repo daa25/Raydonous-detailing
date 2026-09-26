@@ -8,7 +8,7 @@
 <meta name="description" content="Owner-operated mobile detailing, interior restoration, paint correction and ceramic coating throughout Tampa Bay.">
 <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
 <link rel="preload" as="image" href="https://cdn.shopify.com/s/files/1/0782/2186/9293/files/raydonus-lamborghini.jpg?v=1789504562" fetchpriority="high">
-<link rel="stylesheet" href="styles.css?v=10">
+<link rel="stylesheet" href="styles.css?v=11">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -29,6 +29,16 @@
 </header>
 
 <main id="main">
+<section class="film-intro" id="restored" aria-label="RESTORED cinematic brand film" hidden>
+  <div class="film-shell">
+    <div class="film-top"><span>RAYDONUS DETAILING PRESENTS</span><a class="film-skip" href="#top" id="skipFilm">Skip video <span aria-hidden="true">↗</span></a></div>
+    <video id="restoredFilm" playsinline preload="metadata" controls poster="" aria-label="RESTORED brand film featuring Ray's detailing work">
+      <source src="assets/video/restored.mp4" type="video/mp4">
+      Your browser does not support video playback.
+    </video>
+    <div class="film-bottom"><strong>RESTORED.</strong><span>Know Christ. Know Peace.</span></div>
+  </div>
+</section>
 <section class="hero" id="top">
   <img class="hero-photo" src="https://cdn.shopify.com/s/files/1/0782/2186/9293/files/raydonus-lamborghini.jpg?v=1789504562" alt="Blue Lamborghini detailed by Raydonus Detailing">
   <div class="hero-overlay"></div>
@@ -37,7 +47,7 @@
       <p class="eyebrow">Tampa Bay · Owner Operated · Mobile Service</p>
       <h1>DETAILING<br><span>DONE RIGHT.</span></h1>
       <p>Premium mobile detailing for cars, trucks, SUVs, work vehicles and specialty finishes. Ray brings the setup, the process and the accountability directly to you.</p>
-      <div class="hero-actions">
+      <div class="hero-actions">\n        <a class="btn secondary film-watch" href="#restored" hidden>Watch RESTORED Film</a>
         <a class="btn primary" href="#book">Build My Detail</a>
         <a class="btn secondary" href="tel:+18132939734">Call Ray</a>
       </div>
@@ -187,6 +197,6 @@
   <small>© <span id="year"></span> Raydonus Detailing. All rights reserved.</small>
 </footer>
 <div class="mobile-bar"><a href="tel:+18132939734">Call</a><a href="sms:+18132939734">Text</a><a href="#book">Book</a></div>
-<script src="script.js?v=10"></script>
+<script src="script.js?v=11"></script>
 </body>
 </html>
