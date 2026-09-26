@@ -1,9 +1,1 @@
-.git
-.github
-wrangler.toml
-.assetsignore
-README.md
-assets/authentic2
-assets/video
-assets/*.txt
-assets/test.txt
+.git\n.github\nwrangler.toml\n.assetsignore\nREADME.md\nassets/authentic2\nassets/*.txt\nassets/test.txt\n
